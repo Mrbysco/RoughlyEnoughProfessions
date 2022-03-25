@@ -1,0 +1,43 @@
+{
+    "schemaVersion": 1,
+    "id": "roughlyenoughprofessions",
+    "version": "${version}",
+  
+    "name": "Roughly Enough Professions",
+    "description": "Adds info about professions to REI",
+    "authors": [
+      "Mrbysco, ShyNieke"
+    ],
+    "contact": {
+      "homepage": "https://fabricmc.net/",
+      "sources": "https://github.com/FabricMC/fabric-example-mod"
+    },
+  
+    "license": "CC0-1.0",
+    "icon": "assets/modid/icon.png",
+  
+    "environment": "*",
+    "entrypoints": {
+      "client": [
+        "com.mrbysco.roughlyenoughprofessions.RoughlyEnoughProfessionsFabric"
+      ],
+      "rei": [
+        "com.mrbysco.roughlyenoughprofessions.rei.REPClientPlugin"
+      ]
+    },
+    "mixins": [
+      "roughlyenoughprofessions.mixins.json"
+    ],
+  
+    "depends": {
+      "fabricloader": ">=0.13",
+      "fabric": "*",
+      "minecraft": "1.18.x",
+      "java": ">=17",
+      "roughlyenoughitems": "7.3.443"
+    },
+    "suggests": {
+      "another-mod": "*"
+    }
+  }
+  

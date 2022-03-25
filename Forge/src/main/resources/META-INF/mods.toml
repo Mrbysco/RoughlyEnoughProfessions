@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[39,)"
+issueTrackerURL="https://github.com/Mrbysco/RoughlyEnoughProfessions/issues"
+license="MIT"
+
+[[mods]]
+modId="roughlyenoughprofessions"
+version="${file.jarVersion}"
+displayName="Roughly Enough Professions"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/Roughly-Enough-Professions"
+authors="Mrbysco, ShyNieke"
+description='''
+Adds info about professions to REI
+'''
+[[dependencies.roughlyenoughprofessions]]
+modId="roughlyenoughitems"
+mandatory=true
+versionRange="[7.3.443,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.roughlyenoughprofessions]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.18.1,1.19)"
+ordering="NONE"
+side="BOTH"
