@@ -34,7 +34,7 @@
       "fabric": "*",
       "minecraft": "1.18.x",
       "java": ">=17",
-      "roughlyenoughitems": "7.3.443"
+      "roughlyenoughitems": "7.3.435"
     },
     "suggests": {
       "another-mod": "*"
