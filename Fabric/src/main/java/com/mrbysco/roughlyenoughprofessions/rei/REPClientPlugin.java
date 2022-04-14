@@ -40,7 +40,7 @@ public class REPClientPlugin implements REIClientPlugin {
 			List<ItemStack> stacks = new LinkedList<>();
 			List<ResourceLocation> knownItems = new LinkedList<>();
 			PoiType poiType = profession.getJobPoiType();
-			Set<BlockState> matchingStates = ((PoiTypeAccessor)poiType).getMatchingStates();
+			Set<BlockState> matchingStates = ((PoiTypeAccessor) poiType).getMatchingStates();
 			for (BlockState state : matchingStates) {
 				Block block = Registry.BLOCK.get(Registry.BLOCK.getKey(state.getBlock()));
 				if (block != null) {
