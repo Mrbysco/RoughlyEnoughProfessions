@@ -12,7 +12,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Items;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class ProfessionCategory implements DisplayCategory<ProfessionDisplayForg
 
 	@Override
 	public Component getTitle() {
-		return new TranslatableComponent("roughlyenoughprofessions.professions.title");
+		return Component.translatable("roughlyenoughprofessions.professions.title");
 	}
 
 	@Override

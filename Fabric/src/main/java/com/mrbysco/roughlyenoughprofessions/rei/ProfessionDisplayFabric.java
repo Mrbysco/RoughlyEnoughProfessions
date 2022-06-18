@@ -16,7 +16,7 @@ public class ProfessionDisplayFabric extends ProfessionDisplay implements Displa
 
 	public ProfessionDisplayFabric(ProfessionEntry entry) {
 		super(entry);
-		this.entryStacks = EntryIngredients.of(VanillaEntryTypes.ITEM, entry.getBlockStacks());
+		this.entryStacks = EntryIngredients.of(VanillaEntryTypes.ITEM, entry.blockStacks());
 	}
 
 	@Override

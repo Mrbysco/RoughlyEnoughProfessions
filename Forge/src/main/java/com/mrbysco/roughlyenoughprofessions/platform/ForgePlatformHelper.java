@@ -15,6 +15,6 @@ public class ForgePlatformHelper implements IPlatformHelper {
 
 	@Override
 	public ResourceLocation getProfessionID(VillagerProfession profession) {
-		return profession.getRegistryName();
+		return ForgeRegistries.PROFESSIONS.getKey(profession);
 	}
 }

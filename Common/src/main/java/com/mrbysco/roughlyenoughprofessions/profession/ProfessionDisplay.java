@@ -18,11 +18,11 @@ public class ProfessionDisplay {
 	}
 
 	public ResourceLocation getProfessionName() {
-		return Services.PLATFORM.getProfessionID(this.entry.getProfession());
+		return Services.PLATFORM.getProfessionID(this.entry.profession());
 	}
 
 	public List<ItemStack> getBlockStacks() {
-		return this.entry.getBlockStacks();
+		return this.entry.blockStacks();
 	}
 
 	public void drawEntry(PoseStack poseStack, double mouseX, double mouseY) {

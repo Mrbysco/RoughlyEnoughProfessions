@@ -2,10 +2,7 @@ package com.mrbysco.roughlyenoughprofessions.rei;
 
 import com.mrbysco.roughlyenoughprofessions.Constants;
 import com.mrbysco.roughlyenoughprofessions.compat.CompatibilityHelper;
-import com.mrbysco.roughlyenoughprofessions.platform.Services;
 import com.mrbysco.roughlyenoughprofessions.profession.ProfessionEntry;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
@@ -37,32 +34,33 @@ public class REPClientPlugin implements REIClientPlugin {
 
 	@Override
 	public void registerDisplays(DisplayRegistry registry) {
-		List<ProfessionEntry> entries = new LinkedList<>();
+		List<ProfessionDisplayForge> entries = new LinkedList<>();
 		for (VillagerProfession profession : ForgeRegistries.PROFESSIONS) {
-			List<ItemStack> stacks = new LinkedList<>();
-			List<ResourceLocation> knownItems = new LinkedList<>();
-			PoiType poiType = profession.getJobPoiType();
-			for (BlockState state : poiType.matchingStates) {
-				Block block = ForgeRegistries.BLOCKS.getValue(state.getBlock().getRegistryName());
-				if (block != null) {
-					ItemStack stack = CompatibilityHelper.compatibilityCheck(new ItemStack(block), Services.PLATFORM.getProfessionID(profession));
-					ResourceLocation location = stack.getItem().getRegistryName();
-					if (!stack.isEmpty() && !knownItems.contains(location)) {
-						stacks.add(stack);
-						knownItems.add(location);
+			if (profession == VillagerProfession.NONE) {
+				continue;
+			}
+			for (PoiType poiType : ForgeRegistries.POI_TYPES.getValues()) {
+				if (profession.acquirableJobSite().test(ForgeRegistries.POI_TYPES.getHolder(poiType).orElse(null))) {
+					List<ItemStack> stacks = new LinkedList<>();
+					List<ResourceLocation> knownItems = new LinkedList<>();
+					for (BlockState state : poiType.matchingStates()) {
+						Block block = ForgeRegistries.BLOCKS.getValue(ForgeRegistries.BLOCKS.getKey(state.getBlock()));
+						if (block != null) {
+							ItemStack stack = CompatibilityHelper.compatibilityCheck(new ItemStack(block), ForgeRegistries.PROFESSIONS.getKey(profession));
+							ResourceLocation location = ForgeRegistries.ITEMS.getKey(stack.getItem());
+							if (!stack.isEmpty() && !knownItems.contains(location)) {
+								stacks.add(stack);
+								knownItems.add(location);
+							}
+						}
+					}
+					if (!stacks.isEmpty()) {
+						entries.add(new ProfessionDisplayForge(new ProfessionEntry(profession, stacks)));
 					}
 				}
 			}
-			if (!stacks.isEmpty()) {
-				Int2ObjectMap<ItemStack> map = new Int2ObjectOpenHashMap<>();
-				for (int i = 0; i < stacks.size(); i++) {
-					map.put(i, stacks.get(i));
-				}
-				entries.add(new ProfessionEntry(profession, map));
-			}
 		}
-		entries.forEach((entry) -> {
-			registry.add(new ProfessionDisplayForge(entry));
-		});
+
+		entries.forEach(registry::add);
 	}
 }
