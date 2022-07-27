@@ -10,11 +10,11 @@ public class ForgePlatformHelper implements IPlatformHelper {
 
 	@Override
 	public String getVillagerID() {
-		return ForgeRegistries.ENTITIES.getKey(EntityType.VILLAGER).toString();
+		return ForgeRegistries.ENTITY_TYPES.getKey(EntityType.VILLAGER).toString();
 	}
 
 	@Override
 	public ResourceLocation getProfessionID(VillagerProfession profession) {
-		return ForgeRegistries.PROFESSIONS.getKey(profession);
+		return ForgeRegistries.VILLAGER_PROFESSIONS.getKey(profession);
 	}
 }

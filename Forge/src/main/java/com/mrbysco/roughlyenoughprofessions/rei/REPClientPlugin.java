@@ -35,7 +35,7 @@ public class REPClientPlugin implements REIClientPlugin {
 	@Override
 	public void registerDisplays(DisplayRegistry registry) {
 		List<ProfessionDisplayForge> entries = new LinkedList<>();
-		for (VillagerProfession profession : ForgeRegistries.PROFESSIONS) {
+		for (VillagerProfession profession : ForgeRegistries.VILLAGER_PROFESSIONS) {
 			if (profession == VillagerProfession.NONE) {
 				continue;
 			}
@@ -46,7 +46,7 @@ public class REPClientPlugin implements REIClientPlugin {
 					for (BlockState state : poiType.matchingStates()) {
 						Block block = ForgeRegistries.BLOCKS.getValue(ForgeRegistries.BLOCKS.getKey(state.getBlock()));
 						if (block != null) {
-							ItemStack stack = CompatibilityHelper.compatibilityCheck(new ItemStack(block), ForgeRegistries.PROFESSIONS.getKey(profession));
+							ItemStack stack = CompatibilityHelper.compatibilityCheck(new ItemStack(block), ForgeRegistries.VILLAGER_PROFESSIONS.getKey(profession));
 							ResourceLocation location = ForgeRegistries.ITEMS.getKey(stack.getItem());
 							if (!stack.isEmpty() && !knownItems.contains(location)) {
 								stacks.add(stack);
