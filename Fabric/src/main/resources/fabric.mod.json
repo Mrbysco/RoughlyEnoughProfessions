@@ -22,9 +22,6 @@
       "com.mrbysco.roughlyenoughprofessions.rei.REPClientPlugin"
     ]
   },
-  "mixins": [
-    "roughlyenoughprofessions.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=0.14",
     "fabric": "*",
