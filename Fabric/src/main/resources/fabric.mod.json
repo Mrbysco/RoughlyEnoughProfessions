@@ -25,9 +25,9 @@
   "depends": {
     "fabricloader": ">=0.14",
     "fabric": "*",
-    "minecraft": "1.19.x",
+    "minecraft": ">=1.19.3",
     "java": ">=17",
-    "roughlyenoughitems": ">=9.0.491"
+    "roughlyenoughitems": ">=10.0.581"
   },
   "suggests": {
     "another-mod": "*"

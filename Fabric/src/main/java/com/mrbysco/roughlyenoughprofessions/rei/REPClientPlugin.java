@@ -7,7 +7,7 @@ import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -33,20 +33,20 @@ public class REPClientPlugin implements REIClientPlugin {
 	@Override
 	public void registerDisplays(DisplayRegistry registry) {
 		List<ProfessionDisplayFabric> entries = new LinkedList<>();
-		for (VillagerProfession profession : Registry.VILLAGER_PROFESSION) {
+		for (VillagerProfession profession : BuiltInRegistries.VILLAGER_PROFESSION) {
 			if (profession == VillagerProfession.NONE) {
 				continue;
 			}
-			for (PoiType poiType : Registry.POINT_OF_INTEREST_TYPE) {
-				ResourceKey<PoiType> key = Registry.POINT_OF_INTEREST_TYPE.getResourceKey(poiType).orElse(null);
-				if (key != null && profession.acquirableJobSite().test(Registry.POINT_OF_INTEREST_TYPE.getHolder(key).orElse(null))) {
+			for (PoiType poiType : BuiltInRegistries.POINT_OF_INTEREST_TYPE) {
+				ResourceKey<PoiType> key = BuiltInRegistries.POINT_OF_INTEREST_TYPE.getResourceKey(poiType).orElse(null);
+				if (key != null && profession.acquirableJobSite().test(BuiltInRegistries.POINT_OF_INTEREST_TYPE.getHolder(key).orElse(null))) {
 					List<ItemStack> stacks = new LinkedList<>();
 					List<ResourceLocation> knownItems = new LinkedList<>();
 					for (BlockState state : poiType.matchingStates()) {
-						Block block = Registry.BLOCK.get(Registry.BLOCK.getKey(state.getBlock()));
+						Block block = BuiltInRegistries.BLOCK.get(BuiltInRegistries.BLOCK.getKey(state.getBlock()));
 						if (block != null) {
 							ItemStack stack = new ItemStack(block);
-							ResourceLocation location = Registry.ITEM.getKey(stack.getItem());
+							ResourceLocation location = BuiltInRegistries.ITEM.getKey(stack.getItem());
 							if (!stack.isEmpty() && !knownItems.contains(location)) {
 								stacks.add(stack);
 								knownItems.add(location);
