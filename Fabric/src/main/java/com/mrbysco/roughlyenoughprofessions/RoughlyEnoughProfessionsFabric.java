@@ -6,6 +6,6 @@ public class RoughlyEnoughProfessionsFabric implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		CommonClass.init();
+
 	}
 }

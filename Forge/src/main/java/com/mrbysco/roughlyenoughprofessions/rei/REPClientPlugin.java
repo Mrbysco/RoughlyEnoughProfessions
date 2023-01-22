@@ -23,7 +23,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 @REIPluginClient
-@REIPluginDedicatedServer
 public class REPClientPlugin implements REIClientPlugin {
 	public static final CategoryIdentifier<ProfessionDisplayForge> PROFESSION = CategoryIdentifier.of(Constants.MOD_ID, "plugins/profession");
 
