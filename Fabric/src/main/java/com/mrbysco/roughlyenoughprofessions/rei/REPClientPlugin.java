@@ -37,11 +37,11 @@ public class REPClientPlugin implements REIClientPlugin {
 			if (profession == VillagerProfession.NONE) {
 				continue;
 			}
+			List<ItemStack> stacks = new LinkedList<>();
+			List<ResourceLocation> knownItems = new LinkedList<>();
 			for (PoiType poiType : Registry.POINT_OF_INTEREST_TYPE) {
 				ResourceKey<PoiType> key = Registry.POINT_OF_INTEREST_TYPE.getResourceKey(poiType).orElse(null);
 				if (key != null && profession.acquirableJobSite().test(Registry.POINT_OF_INTEREST_TYPE.getHolder(key).orElse(null))) {
-					List<ItemStack> stacks = new LinkedList<>();
-					List<ResourceLocation> knownItems = new LinkedList<>();
 					for (BlockState state : poiType.matchingStates()) {
 						Block block = Registry.BLOCK.get(Registry.BLOCK.getKey(state.getBlock()));
 						if (block != null) {
@@ -53,10 +53,10 @@ public class REPClientPlugin implements REIClientPlugin {
 							}
 						}
 					}
-					if (!stacks.isEmpty()) {
-						entries.add(new ProfessionDisplayFabric(new ProfessionEntry(profession, stacks)));
-					}
 				}
+			}
+			if (!stacks.isEmpty()) {
+				entries.add(new ProfessionDisplayFabric(new ProfessionEntry(profession, stacks)));
 			}
 		}
 
