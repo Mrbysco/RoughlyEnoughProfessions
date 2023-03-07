@@ -95,19 +95,13 @@ processResources {
 
 jar.finalizedBy('reobfJar')
 
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
-}
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact(reobfArtifact) {
-                builtBy reobfArtifact
-                artifactId = archivesBaseName
-                classifier null
-            }
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+            from components.java
         }
     }
     repositories {
@@ -121,8 +115,4 @@ publishing {
             }
         }
     }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
