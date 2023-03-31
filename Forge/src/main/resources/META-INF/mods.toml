@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[44,)"
+loaderVersion = "[45,)"
 issueTrackerURL = "https://github.com/Mrbysco/RoughlyEnoughProfessions/issues"
 license = "MIT"
 
@@ -15,18 +15,12 @@ Adds info about professions to REI
 [[dependencies.roughlyenoughprofessions]]
 modId = "roughlyenoughitems"
 mandatory = true
-versionRange = "[10.0.581,)"
+versionRange = "[11.0.597,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.roughlyenoughprofessions]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.3,1.20)"
+versionRange = "[1.19.4,1.20)"
 ordering = "NONE"
 side = "CLIENT"
-[[dependencies.roughlyenoughprofessions]]
-modId = "forge"
-mandatory = true
-versionRange = "[44.0.0,)"
-ordering = "NONE"
-side = "BOTH"
