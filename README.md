@@ -1,6 +1,6 @@
-[![build](https://github.com/Mrbysco/RoughlyEnoughProfessions/actions/workflows/build.yml/badge.svg)](https://github.com/Mrbysco/RoughlyEnoughProfessions/actions/workflows/build.yml) 
-[![](https://img.shields.io/badge/Curseforge-1.18.1--1.19.4-F16436?style=flat&logo=curseforge)](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-professions-rep)
-[![](https://img.shields.io/badge/Modrinth-1.18.2--1.19.4-00AF5C?flat&logo=modrinth)](https://modrinth.com/mod/roughly-enough-professions-rep)
+[![build](https://img.shields.io/github/actions/workflow/status/Mrbysco/RoughlyEnoughProfessions/build.yml?label=Build%20and%20Maven&logo=github)](https://github.com/Mrbysco/RoughlyEnoughProfessions/actions/workflows/build.yml) 
+[![](https://cf.way2muchnoise.eu/versions/Curseforge%20avaliable%20for_597988_all.svg)](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-professions-rep)
+[![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/roughly-enough-professions-rep?color=%2300AF5C&label=Modrinth%20avaliable%20for&logo=modrinth)](https://modrinth.com/mod/roughly-enough-professions-rep)
 # Roughly Enough Professions (REP) #
 
 ## About ##
