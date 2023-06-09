@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.world.entity.LivingEntity;
@@ -11,8 +12,9 @@ import org.joml.Quaternionf;
 
 public class RenderHelper {
 	@SuppressWarnings("deprecation")
-	public static void renderEntity(PoseStack poseStack, int x, int y, double scale, double yaw, double pitch, LivingEntity livingEntity) {
-		if (livingEntity.level == null) livingEntity.level = Minecraft.getInstance().level;
+	public static void renderEntity(GuiGraphics guiGraphics, int x, int y, double scale, double yaw, double pitch, LivingEntity livingEntity) {
+		if (livingEntity.level() == null) return;
+		PoseStack poseStack = guiGraphics.pose();
 		poseStack.pushPose();
 		poseStack.translate((float) x, (float) y, 50f);
 		poseStack.scale((float) scale, (float) scale, (float) scale);

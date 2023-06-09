@@ -1,8 +1,8 @@
 package com.mrbysco.roughlyenoughprofessions.profession;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.mrbysco.roughlyenoughprofessions.RenderHelper;
 import com.mrbysco.roughlyenoughprofessions.platform.Services;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.npc.Villager;
@@ -25,10 +25,10 @@ public class ProfessionDisplay {
 		return this.entry.blockStacks();
 	}
 
-	public void drawEntry(PoseStack poseStack, double mouseX, double mouseY) {
+	public void drawEntry(GuiGraphics guiGraphics, double mouseX, double mouseY) {
 		Villager entityVillager = entry.getVillagerEntity();
 		if (entityVillager != null) {
-			RenderHelper.renderEntity(poseStack, 22, 62, 25.0F,
+			RenderHelper.renderEntity(guiGraphics, 22, 62, 25.0F,
 					Mth.wrapDegrees(38 - mouseX),
 					Mth.wrapDegrees(80 - mouseY),
 					entityVillager);

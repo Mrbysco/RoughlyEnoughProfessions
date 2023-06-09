@@ -6,14 +6,14 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 public interface IPlatformHelper {
 
 	/**
-	 * Get's the ID of a given villager
+	 * Gets the ID of a given villager
 	 *
 	 * @return The id of the villager EntityType
 	 */
 	String getVillagerID();
 
 	/**
-	 * Get's the ID of a given profession
+	 * Gets the ID of a given profession
 	 *
 	 * @return The id of the profession
 	 */

@@ -1,5 +1,6 @@
 package com.mrbysco.roughlyenoughprofessions.rei;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.Renderer;
@@ -40,8 +41,9 @@ public class ProfessionCategory implements DisplayCategory<ProfessionDisplayForg
 		List<Widget> widgets = new ArrayList<>();
 		widgets.add(Widgets.createRecipeBase(bounds));
 		widgets.add(Widgets.createArrow(new Point(startPoint.x + 24, startPoint.y)));
-		widgets.add(Widgets.withTranslate(Widgets.createDrawableWidget((drawableHelper, poseStack, mouseX, mouseY, v) -> {
+		widgets.add(Widgets.withTranslate(Widgets.createDrawableWidget((guiGraphics, mouseX, mouseY, v) -> {
 			// Draw entity name
+			PoseStack poseStack = guiGraphics.pose();
 			poseStack.pushPose();
 			poseStack.translate(1, 0, 0);
 			Font font = Minecraft.getInstance().font;
@@ -49,12 +51,12 @@ public class ProfessionCategory implements DisplayCategory<ProfessionDisplayForg
 			if (font.width(text) > 122) {
 				poseStack.scale(0.75F, 0.75F, 0.75F);
 			}
-			font.draw(poseStack, text, 0, 0, 8);
+			guiGraphics.drawString(font, text, 0, 0, 8, false);
 			poseStack.popPose();
 		}), bounds.x + 3, bounds.y + 3, 0));
-		widgets.add(Widgets.withTranslate(Widgets.createDrawableWidget((drawableHelper, poseStack, mouseX, mouseY, v) -> {
+		widgets.add(Widgets.withTranslate(Widgets.createDrawableWidget((guiGraphics, mouseX, mouseY, v) -> {
 			// Draw entity
-			display.drawEntry(poseStack, mouseX, mouseY);
+			display.drawEntry(guiGraphics, mouseX, mouseY);
 		}), bounds.x + 56, bounds.y + 2, 0));
 		widgets.add(Widgets.createSlot(new Point(startPoint)).entries(display.getInputEntries().get(0)).markInput());
 
