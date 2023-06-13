@@ -1,0 +1,45 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'maven-publish'
+    id 'org.spongepowered.gradle.vanilla'
+}
+
+base {
+    archivesName = "${mod_name}-common-${minecraft_version}"
+}
+
+minecraft {
+    version(minecraft_version)
+    if (file("src/main/resources/${mod_id}.accesswidener").exists()) {
+        accessWideners(file("src/main/resources/${mod_id}.accesswidener"))
+    }
+}
+
+dependencies {
+    compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId base.archivesName.get()
+            version project.version
+            from components.java
+        }
+    }
+
+    repositories {
+        if (System.getenv().SAP_SECRET) {
+            maven {
+                url "https://maven.saps.dev/releases"
+                credentials {
+                    username = "mrbysco"
+                    password = "${System.getenv().SAP_SECRET}"
+                }
+            }
+        }
+    }
+}

@@ -17,4 +17,4 @@ pluginManagement {
 }
 
 rootProject.name = 'RoughlyEnoughProfessions'
-include("Common", "Fabric", "Forge")
+include("common", "fabric", "forge")
