@@ -1,6 +1,6 @@
 package com.mrbysco.roughlyenoughprofessions.compat;
 
-import me.shedaniel.rei.impl.client.gui.screen.DefaultDisplayViewingScreen;
+import me.shedaniel.rei.impl.client.gui.screen.AbstractDisplayViewingScreen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
@@ -26,7 +26,7 @@ public class CompatibilityHelper {
 
 	@SubscribeEvent
 	public static void handleTooltips(ItemTooltipEvent event) {
-		if (Minecraft.getInstance().screen instanceof DefaultDisplayViewingScreen) {
+		if (Minecraft.getInstance().screen instanceof AbstractDisplayViewingScreen) {
 			ItemStack stack = event.getItemStack();
 			if (stack.hasTag() && stack.getTag().getBoolean("REP_outfitter")) {
 				event.getToolTip().add(Component.literal("Needs to have a shader applied").withStyle(ChatFormatting.GOLD));
