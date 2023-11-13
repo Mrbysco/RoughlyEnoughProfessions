@@ -1,1 +1,1 @@
-* Add Japanese localization (Courtesy of [EndilCrafter](https://github.com/Mrbysco/RoughlyEnoughProfessions/pull/9))
+* Initial update to 1.20.2
