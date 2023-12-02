@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "roughlyenoughprofessions",
+  "version": "${version}",
+  "name": "Roughly Enough Professions",
+  "description": "Adds info about professions to REI",
+  "authors": [
+    "Mrbysco, ShyNieke"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/roughly-enough-professions-rep",
+    "sources": "https://github.com/Mrbysco/RoughlyEnoughProfessions",
+    "issues": "https://github.com/Mrbysco/RoughlyEnoughProfessions/issues"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.mrbysco.roughlyenoughprofessions.RoughlyEnoughProfessionsFabric"
+    ],
+    "rei_client": [
+      "com.mrbysco.roughlyenoughprofessions.rei.REPClientPlugin"
+    ]
+  },
+  "mixins": [
+    "roughlyenoughprofessions.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17",
+    "roughlyenoughitems": "8.x.x"
+  }
+}
+  
