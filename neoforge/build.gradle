@@ -1,7 +1,7 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.41'
+    id 'net.neoforged.gradle.userdev' version '7.0.61'
     id 'java-library'
     id 'net.darkhax.curseforgegradle'
     id 'com.modrinth.minotaur'
