@@ -11,10 +11,10 @@ import me.shedaniel.rei.api.common.util.EntryIngredients;
 import java.util.Collections;
 import java.util.List;
 
-public class ProfessionDisplayForge extends ProfessionDisplay implements Display {
+public class ProfessionDisplayNeoForge extends ProfessionDisplay implements Display {
 	private EntryIngredient entryStacks;
 
-	public ProfessionDisplayForge(ProfessionEntry entry) {
+	public ProfessionDisplayNeoForge(ProfessionEntry entry) {
 		super(entry);
 		this.entryStacks = EntryIngredients.of(VanillaEntryTypes.ITEM, entry.blockStacks());
 	}

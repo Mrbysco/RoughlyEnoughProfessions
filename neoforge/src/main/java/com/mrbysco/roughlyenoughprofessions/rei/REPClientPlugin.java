@@ -23,7 +23,7 @@ import java.util.List;
 
 @REIPluginClient
 public class REPClientPlugin implements REIClientPlugin {
-	public static final CategoryIdentifier<ProfessionDisplayForge> PROFESSION = CategoryIdentifier.of(Constants.MOD_ID, "plugins/profession");
+	public static final CategoryIdentifier<ProfessionDisplayNeoForge> PROFESSION = CategoryIdentifier.of(Constants.MOD_ID, "plugins/profession");
 
 	@Override
 	public void registerCategories(CategoryRegistry registry) {
@@ -34,7 +34,7 @@ public class REPClientPlugin implements REIClientPlugin {
 
 	@Override
 	public void registerDisplays(DisplayRegistry registry) {
-		List<ProfessionDisplayForge> entries = new LinkedList<>();
+		List<ProfessionDisplayNeoForge> entries = new LinkedList<>();
 		List<VillagerProfession> professions = BuiltInRegistries.VILLAGER_PROFESSION.stream().toList();
 		for (VillagerProfession profession : professions) {
 			if (profession == VillagerProfession.NONE) {
@@ -59,7 +59,7 @@ public class REPClientPlugin implements REIClientPlugin {
 				}
 			}
 			if (!stacks.isEmpty()) {
-				entries.add(new ProfessionDisplayForge(new ProfessionEntry(profession, stacks)));
+				entries.add(new ProfessionDisplayNeoForge(new ProfessionEntry(profession, stacks)));
 			}
 		}
 

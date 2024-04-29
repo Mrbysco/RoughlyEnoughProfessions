@@ -18,7 +18,7 @@ import net.minecraft.world.item.Items;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfessionCategory implements DisplayCategory<ProfessionDisplayForge> {
+public class ProfessionCategory implements DisplayCategory<ProfessionDisplayNeoForge> {
 
 	@Override
 	public Renderer getIcon() {
@@ -31,12 +31,12 @@ public class ProfessionCategory implements DisplayCategory<ProfessionDisplayForg
 	}
 
 	@Override
-	public CategoryIdentifier<? extends ProfessionDisplayForge> getCategoryIdentifier() {
+	public CategoryIdentifier<? extends ProfessionDisplayNeoForge> getCategoryIdentifier() {
 		return REPClientPlugin.PROFESSION;
 	}
 
 	@Override
-	public List<Widget> setupDisplay(ProfessionDisplayForge display, Rectangle bounds) {
+	public List<Widget> setupDisplay(ProfessionDisplayNeoForge display, Rectangle bounds) {
 		Point startPoint = new Point(bounds.getCenterX() - 36, bounds.getCenterY());
 		List<Widget> widgets = new ArrayList<>();
 		widgets.add(Widgets.createRecipeBase(bounds));
@@ -64,7 +64,7 @@ public class ProfessionCategory implements DisplayCategory<ProfessionDisplayForg
 	}
 
 	@Override
-	public int getDisplayWidth(ProfessionDisplayForge display) {
+	public int getDisplayWidth(ProfessionDisplayNeoForge display) {
 		return 100;
 	}
 
