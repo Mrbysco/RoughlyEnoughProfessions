@@ -1,1 +1,1 @@
-* Initial update to 1.20.4
+* Build against later version of NeoForge, Fabric and Forge
