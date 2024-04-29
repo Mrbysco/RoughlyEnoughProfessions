@@ -132,7 +132,7 @@ if (System.getenv().CURSEFORGE_KEY) {
         mainFile.releaseType = 'beta'
         mainFile.addGameVersion "Forge"
         mainFile.addGameVersion "${minecraft_version}"
-        mainFile.addGameVersion "Java 17"
+        mainFile.addGameVersion "Java 21"
 
         mainFile.changelog = file("$project.rootDir/changelog.md")
         mainFile.changelogType = 'markdown'
