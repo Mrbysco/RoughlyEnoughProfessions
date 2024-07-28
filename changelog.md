@@ -1,1 +1,1 @@
-* Initial update to 1.21
+* Increase the minimum required REI version to `16.0.744`
