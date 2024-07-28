@@ -28,5 +28,4 @@ plugins {
 rootProject.name = 'RoughlyEnoughProfessions'
 include("common")
 include("fabric")
-//include("forge")
 include("neoforge")
