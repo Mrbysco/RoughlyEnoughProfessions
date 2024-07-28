@@ -27,6 +27,6 @@
     "minecraft": "~1.21",
     "java": ">=21",
     "fabric-api": "*",
-    "roughlyenoughitems": ">=16"
+    "roughlyenoughitems": ">=16.0.744"
   }
 }

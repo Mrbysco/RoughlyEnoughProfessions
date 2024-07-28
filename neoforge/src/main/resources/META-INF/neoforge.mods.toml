@@ -15,7 +15,7 @@ Adds info about professions to REI
 [[dependencies.roughlyenoughprofessions]]
 modId = "roughlyenoughitems"
 type = "required"
-versionRange = "[16.0.729,)"
+versionRange = "[16.0.744,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.roughlyenoughprofessions]]
