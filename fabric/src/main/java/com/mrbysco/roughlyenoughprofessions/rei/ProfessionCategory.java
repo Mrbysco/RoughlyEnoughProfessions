@@ -47,7 +47,7 @@ public class ProfessionCategory implements DisplayCategory<ProfessionDisplayFabr
 			poseStack.pushPose();
 			poseStack.translate(1, 0, 0);
 			Font font = Minecraft.getInstance().font;
-			String text = Screen.hasShiftDown() ? display.getProfessionName().toString() : display.getProfessionName().getPath();
+			String text = Screen.hasShiftDown() ? display.getProfessionName().toString() : display.getDisplayName().getString();
 			if (font.width(text) > 122) {
 				poseStack.scale(0.75F, 0.75F, 0.75F);
 			}

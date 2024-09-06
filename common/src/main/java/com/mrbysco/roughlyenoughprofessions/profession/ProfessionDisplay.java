@@ -3,6 +3,7 @@ package com.mrbysco.roughlyenoughprofessions.profession;
 import com.mrbysco.roughlyenoughprofessions.RenderHelper;
 import com.mrbysco.roughlyenoughprofessions.platform.Services;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.npc.Villager;
@@ -17,10 +18,30 @@ public class ProfessionDisplay {
 		this.entry = entry;
 	}
 
+	/**
+	 * Get the profession name for the recipe.
+	 * @return
+	 */
 	public ResourceLocation getProfessionName() {
 		return Services.PLATFORM.getProfessionID(this.entry.profession());
 	}
 
+	/**
+	 * Get the profession name for display.
+	 *
+	 * @return
+	 */
+	public Component getDisplayName() {
+		ResourceLocation professionKey = getProfessionName();
+		String languageKey = professionKey.toLanguageKey();
+		if (languageKey.startsWith("minecraft.")) languageKey = languageKey.replace("minecraft.", "");
+		return Component.translatable("entity.minecraft.villager." + languageKey);
+	}
+
+	/**
+	 * Get the ItemStacks that represent the blocks in the recipe.
+	 * @return a list of ItemStacks for the blocks in the recipe.
+	 */
 	public List<ItemStack> getBlockStacks() {
 		return this.entry.blockStacks();
 	}
