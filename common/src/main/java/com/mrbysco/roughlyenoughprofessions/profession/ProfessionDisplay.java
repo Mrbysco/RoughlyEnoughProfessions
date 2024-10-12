@@ -51,7 +51,7 @@ public class ProfessionDisplay {
 		if (entityVillager != null) {
 			RenderHelper.renderEntity(guiGraphics, 22, 62, 25.0F,
 					Mth.wrapDegrees(38 - mouseX),
-					Mth.wrapDegrees(80 - mouseY),
+					Mth.wrapDegrees(15 - mouseY),
 					entityVillager);
 		}
 	}

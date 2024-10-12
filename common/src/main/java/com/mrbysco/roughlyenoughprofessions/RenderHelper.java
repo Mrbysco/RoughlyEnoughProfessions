@@ -26,6 +26,7 @@ public class RenderHelper {
 		livingEntity.setYRot((float) -(yaw / 40.F) * 20.0F);
 		livingEntity.yHeadRot = livingEntity.getYRot();
 		livingEntity.yHeadRotO = livingEntity.getYRot();
+		livingEntity.setXRot((float) -(pitch / 5.F));
 
 		poseStack.translate(0.0F, livingEntity.getVehicleAttachmentPoint(livingEntity).y(), 0.0F);
 		EntityRenderDispatcher entityRenderDispatcher = Minecraft.getInstance().getEntityRenderDispatcher();
