@@ -1,2 +1,2 @@
-* Add i18n support (Villager professions will now be translated with their proper names)
-* Improve villager rendering performance by only using one villager instance to render all villagers
+* Fix crashing due to providing a server side villager to a render function (Courtesy of [ChiefArug](https://github.com/Mrbysco/JustEnoughProfessions/pull/17))
+* Make the head look up/down based on mouse position (Courtesy of [ChiefArug](https://github.com/Mrbysco/JustEnoughProfessions/pull/18))
