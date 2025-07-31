@@ -1,2 +1,1 @@
-* Fix crashing due to providing a server side villager to a render function (Courtesy of [ChiefArug](https://github.com/Mrbysco/JustEnoughProfessions/pull/17))
-* Make the head look up/down based on mouse position (Courtesy of [ChiefArug](https://github.com/Mrbysco/JustEnoughProfessions/pull/18))
+* Update to 1.21.4
