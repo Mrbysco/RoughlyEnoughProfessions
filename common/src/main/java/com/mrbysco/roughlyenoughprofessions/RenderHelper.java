@@ -33,8 +33,8 @@ public class RenderHelper {
 		entityRenderDispatcher.overrideCameraOrientation(new Quaternionf(0.0F, 0.0F, 0.0F, 1.0F));
 		entityRenderDispatcher.setRenderShadow(false);
 		final MultiBufferSource.BufferSource bufferSource = Minecraft.getInstance().renderBuffers().bufferSource();
-		RenderSystem.runAsFancy(() -> {
-			entityRenderDispatcher.render(livingEntity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, poseStack, bufferSource, 15728880);
+		guiGraphics.drawSpecial((buffer) -> {
+			entityRenderDispatcher.render(livingEntity, 0.0D, 0.0D, 0.0D, 1.0F, poseStack, buffer, 15728880);
 		});
 		bufferSource.endBatch();
 		entityRenderDispatcher.setRenderShadow(true);

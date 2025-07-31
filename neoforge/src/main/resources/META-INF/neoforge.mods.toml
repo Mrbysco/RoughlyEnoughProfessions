@@ -15,12 +15,12 @@ Adds info about professions to REI
 [[dependencies.roughlyenoughprofessions]]
 modId = "roughlyenoughitems"
 type = "required"
-versionRange = "[16.0.744,)"
+versionRange = "[18.0.808,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.roughlyenoughprofessions]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21,1.22)"
+versionRange = "[1.21.4,1.22)"
 ordering = "NONE"
 side = "CLIENT"
