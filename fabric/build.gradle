@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'idea'
     id 'maven-publish'
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'net.darkhax.curseforgegradle'
     id 'com.modrinth.minotaur'
 }
@@ -69,7 +69,7 @@ processResources {
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        register('mavenJava', MavenPublication) {
             groupId project.group
             artifactId base.archivesName.get()
             version project.version
@@ -99,6 +99,7 @@ if (System.getenv().CURSEFORGE_KEY) {
         mainFile.addGameVersion "Fabric"
         mainFile.addGameVersion "${minecraft_version}"
         mainFile.addGameVersion "Java 21"
+        mainFile.addGameVersion('Client')
 
         mainFile.changelog = file("$project.rootDir/changelog.md")
         mainFile.changelogType = 'markdown'

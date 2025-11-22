@@ -7,7 +7,7 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class CompatibilityHelper {
-    public static ItemStack compatibilityCheck(ItemStack stack, @Nullable ResourceLocation profession) {
+	public static ItemStack compatibilityCheck(ItemStack stack, @Nullable ResourceLocation profession) {
 //        if (profession != null) {
 //            if (profession.equals(new ResourceLocation("immersiveengineering", "outfitter"))) {
 //                CompoundTag tag = stack.hasTag() ? stack.getTag() : new CompoundTag();
@@ -16,16 +16,16 @@ public class CompatibilityHelper {
 //                return stack;
 //            }
 //        }
-        return stack;
-    }
+		return stack;
+	}
 
-    @SubscribeEvent
-    public static void handleTooltips(ItemTooltipEvent event) {
+	@SubscribeEvent
+	public static void handleTooltips(ItemTooltipEvent event) {
 //        if (Minecraft.getInstance().screen instanceof AbstractDisplayViewingScreen) {
 //            ItemStack stack = event.getItemStack();
 //            if (stack.hasTag() && stack.getTag().getBoolean("REP_outfitter")) {
 //                event.getToolTip().add(Component.literal("Needs to have a shader applied").withStyle(ChatFormatting.GOLD));
 //            }
 //        }
-    }
+	}
 }

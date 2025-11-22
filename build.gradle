@@ -1,7 +1,7 @@
 plugins {
     // Required for NeoGradle
     id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.7"
-    id "net.darkhax.curseforgegradle" version "1.1.25" apply(false)
+    id "net.darkhax.curseforgegradle" version "1.1.28" apply(false)
     id "com.modrinth.minotaur" version "2.+" apply(false)
 }
 
@@ -57,14 +57,13 @@ subprojects {
         }
     }
 
-
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'
         it.options.getRelease().set(21)
     }
 
     processResources {
-        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'mods.toml', '*.mixins.json']) {
+        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'neoforge.mods.toml', '*.mixins.json']) {
             expand project.properties
         }
     }
@@ -74,5 +73,13 @@ subprojects {
     // other mod developers.
     tasks.withType(GenerateModuleMetadata).configureEach {
         enabled = false
+    }
+}
+
+// IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
     }
 }

@@ -15,9 +15,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public record ProfessionEntry(VillagerProfession profession, List<ItemStack> blockStacks) {
-	private static final Codec<VillagerProfession> VILLAGER_CODEC = BuiltInRegistries.VILLAGER_PROFESSION
-			.byNameCodec();
+public record ProfessionEntry(Holder<VillagerProfession> profession, List<ItemStack> blockStacks) {
+	private static final Codec<Holder<VillagerProfession>> VILLAGER_CODEC = BuiltInRegistries.VILLAGER_PROFESSION
+			.holderByNameCodec();
 	public static final Codec<ProfessionEntry> CODEC = RecordCodecBuilder.create(
 			instance -> instance.group(
 					VILLAGER_CODEC.fieldOf("profession").forGetter(ProfessionEntry::profession),
@@ -30,6 +30,7 @@ public record ProfessionEntry(VillagerProfession profession, List<ItemStack> blo
 			ProfessionEntry::blockStacks,
 			ProfessionEntry::new
 	);
+
 	@Nullable
 	public Villager getVillagerEntity() {
 		return VillagerCache.getVillagerEntity(this.profession);

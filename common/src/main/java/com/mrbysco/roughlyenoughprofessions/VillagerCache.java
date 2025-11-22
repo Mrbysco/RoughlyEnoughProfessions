@@ -3,6 +3,7 @@ package com.mrbysco.roughlyenoughprofessions;
 import com.mrbysco.roughlyenoughprofessions.platform.Services;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -16,7 +17,7 @@ public class VillagerCache {
 	private static Villager cachedVillager;
 
 	@Nullable
-	public static Villager getVillagerEntity(VillagerProfession profession) {
+	public static Villager getVillagerEntity(Holder<VillagerProfession> professionHolder) {
 		if (cachedVillager == null) {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putString("id", Services.PLATFORM.getVillagerID());
@@ -29,7 +30,7 @@ public class VillagerCache {
 				}
 			}
 		} else {
-			cachedVillager.setVillagerData(cachedVillager.getVillagerData().setProfession(profession));
+			cachedVillager.setVillagerData(cachedVillager.getVillagerData().withProfession(professionHolder));
 			return cachedVillager;
 		}
 

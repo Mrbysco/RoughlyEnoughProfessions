@@ -1,13 +1,14 @@
 package com.mrbysco.roughlyenoughprofessions.profession;
 
 import com.mrbysco.roughlyenoughprofessions.RenderHelper;
-import com.mrbysco.roughlyenoughprofessions.platform.Services;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.item.ItemStack;
+import org.joml.Matrix3x2fStack;
+import org.joml.Vector2f;
 
 import java.util.List;
 
@@ -20,10 +21,11 @@ public class ProfessionDisplay {
 
 	/**
 	 * Get the profession name for the recipe.
+	 *
 	 * @return
 	 */
 	public ResourceLocation getProfessionName() {
-		return Services.PLATFORM.getProfessionID(this.entry.profession());
+		return this.entry.profession().unwrapKey().orElseThrow().location();
 	}
 
 	/**
@@ -40,6 +42,7 @@ public class ProfessionDisplay {
 
 	/**
 	 * Get the ItemStacks that represent the blocks in the recipe.
+	 *
 	 * @return a list of ItemStacks for the blocks in the recipe.
 	 */
 	public List<ItemStack> getBlockStacks() {
@@ -47,9 +50,15 @@ public class ProfessionDisplay {
 	}
 
 	public void drawEntry(GuiGraphics guiGraphics, double mouseX, double mouseY) {
+		final Matrix3x2fStack poseStack = guiGraphics.pose();
+
 		Villager entityVillager = entry.getVillagerEntity();
 		if (entityVillager != null) {
-			RenderHelper.renderEntity(guiGraphics, 22, 62, 25.0F,
+			Vector2f position = new Vector2f(26, 62);
+			position = poseStack.transformPosition(position);
+			int x = Math.round(position.x);
+			int y = Math.round(position.y);
+			RenderHelper.renderVillager(guiGraphics, x, y, 25.0F,
 					Mth.wrapDegrees(38 - mouseX),
 					Mth.wrapDegrees(15 - mouseY),
 					entityVillager);
