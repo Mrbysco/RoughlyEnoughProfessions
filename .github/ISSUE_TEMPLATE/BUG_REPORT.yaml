@@ -24,7 +24,7 @@ body:
     id: loader-info
     attributes:
       label: Loader version
-      placeholder: ex. NeoForge 21.1.0 / Fabric 0.14.12
+      placeholder: ex. NeoForge 20.4.100-beta / Forge 49.0.22 / Fabric 0.15.6
       description: Please be as specific as possible, latest is not a valid version
     validations:
       required: true
@@ -32,7 +32,7 @@ body:
     id: minecraft-info
     attributes:
       label: Minecraft version
-      placeholder: ex. 1.21.1
+      placeholder: ex. 1.20.4
       description: Please be as specific as possible, latest is not a valid version
     validations:
       required: true
