@@ -1,15 +1,15 @@
 package com.mrbysco.roughlyenoughprofessions.compat;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class CompatibilityHelper {
-	public static ItemStack compatibilityCheck(ItemStack stack, @Nullable ResourceLocation profession) {
+	public static ItemStack compatibilityCheck(ItemStack stack, @Nullable Identifier profession) {
 //        if (profession != null) {
-//            if (profession.equals(new ResourceLocation("immersiveengineering", "outfitter"))) {
+//            if (profession.equals(new Identifier("immersiveengineering", "outfitter"))) {
 //                CompoundTag tag = stack.hasTag() ? stack.getTag() : new CompoundTag();
 //                tag.putBoolean("REP_outfitter", true);
 //                stack.setTag(tag);

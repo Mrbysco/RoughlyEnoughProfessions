@@ -10,7 +10,7 @@ import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.Collections;
 import java.util.List;
@@ -49,7 +49,7 @@ public class ProfessionDisplayFabric extends ProfessionDisplay implements Displa
 	}
 
 	@Override
-	public Optional<ResourceLocation> getDisplayLocation() {
+	public Optional<Identifier> getDisplayLocation() {
 		return Optional.empty();
 	}
 

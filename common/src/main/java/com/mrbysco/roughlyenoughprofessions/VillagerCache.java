@@ -7,11 +7,9 @@ import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.npc.Villager;
-import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.Villager;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.function.Function;
 
 public class VillagerCache {
 	private static Villager cachedVillager;
@@ -24,7 +22,7 @@ public class VillagerCache {
 			Minecraft mc = Minecraft.getInstance();
 			ClientLevel level = mc.level;
 			if (level != null) {
-				Villager villager = (Villager) EntityType.loadEntityRecursive(nbt, level, EntitySpawnReason.COMMAND, Function.identity());
+				Villager villager = (Villager) EntityType.loadEntityRecursive(nbt, level, EntitySpawnReason.LOAD, entity -> entity);
 				if (villager != null) {
 					cachedVillager = villager;
 				}

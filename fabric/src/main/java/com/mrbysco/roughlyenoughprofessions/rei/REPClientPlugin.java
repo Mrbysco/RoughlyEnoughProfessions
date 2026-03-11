@@ -9,9 +9,9 @@ import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
-import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.villager.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -37,7 +37,7 @@ public class REPClientPlugin implements REIClientPlugin {
 		for (ResourceKey<VillagerProfession> professionKey : professions) {
 			if (professionKey == VillagerProfession.NONE) continue;
 			List<ItemStack> stacks = new LinkedList<>();
-			List<ResourceLocation> knownItems = new LinkedList<>();
+			List<Identifier> knownItems = new LinkedList<>();
 			List<PoiType> types = BuiltInRegistries.POINT_OF_INTEREST_TYPE.stream().toList();
 			VillagerProfession profession = BuiltInRegistries.VILLAGER_PROFESSION.getValue(professionKey);
 			if (profession == null) continue;
@@ -47,7 +47,7 @@ public class REPClientPlugin implements REIClientPlugin {
 						Block block = state.getBlock(); //Registry replacements are gone?
 						if (block != null) {
 							ItemStack stack = new ItemStack(block);
-							ResourceLocation location = BuiltInRegistries.ITEM.getKey(stack.getItem());
+							Identifier location = BuiltInRegistries.ITEM.getKey(stack.getItem());
 							if (!stack.isEmpty() && !knownItems.contains(location)) {
 								stacks.add(stack);
 								knownItems.add(location);

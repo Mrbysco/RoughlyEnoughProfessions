@@ -2,7 +2,8 @@ package com.mrbysco.roughlyenoughprofessions;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
-import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.npc.villager.Villager;
 import org.joml.Matrix3x2fStack;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -21,11 +22,11 @@ public class RenderHelper {
 	 * @param x           The x position
 	 * @param y           The y position
 	 * @param scale       The scale of the entity
-	 * @param yaw         The yaw of the entity
-	 * @param pitch       The pitch of the entity
+	 * @param mouseX      The mouse X position
+	 * @param mouseY      The mouse Y position
 	 * @param villager    The Villager entity to render
 	 */
-	public static void renderVillager(GuiGraphics guiGraphics, int x, int y, double scale, double yaw, double pitch, Villager villager) {
+	public static void renderVillager(GuiGraphics guiGraphics, int x, int y, double scale, double mouseX, double mouseY, Villager villager) {
 		if (villager.level() == null) return;
 
 		int startX = x - 60;
@@ -37,16 +38,16 @@ public class RenderHelper {
 		poseStack.pushMatrix();
 		poseStack.scale((float) scale, (float) scale);
 
-		villager.yBodyRot = ((float) -(yaw / 40.F) * 20.0F) + 180F;
-		villager.setYRot(((float) -(yaw / 40.F) * 20.0F));
-		villager.yHeadRot = villager.getYRot() + 180F;
-		villager.yHeadRotO = villager.getYRot() + 180F;
-		villager.setXRot((float) -(pitch / 5.F));
+		poseStack.translate(0.0F, (float) villager.getVehicleAttachmentPoint(villager).y());
+
+		double mouseScale = scale / 4;
+		int adjustedMouseX = Mth.ceil(mouseX * mouseScale);
+		int adjustedMouseY = Mth.ceil(mouseY * mouseScale);
 
 		poseStack.translate(0.0F, (float) villager.getVehicleAttachmentPoint(villager).y());
 
-		InventoryScreen.renderEntityInInventory(guiGraphics, startX, startY, endX, endY,
-				(float) scale, TRANSLATION, ANGLE, (Quaternionf) null, villager);
+		InventoryScreen.renderEntityInInventoryFollowsMouse(
+				guiGraphics, startX, startY, endX, endY, (int) 20, -1, adjustedMouseX, adjustedMouseY, villager);
 
 		poseStack.popMatrix();
 	}

@@ -10,7 +10,6 @@ import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Items;
 import org.joml.Matrix3x2fStack;
@@ -46,8 +45,9 @@ public class ProfessionCategory implements DisplayCategory<ProfessionDisplayFabr
 			Matrix3x2fStack poseStack = guiGraphics.pose();
 			poseStack.pushMatrix();
 			poseStack.translate(1, 0);
-			Font font = Minecraft.getInstance().font;
-			String text = Screen.hasShiftDown() ? display.getProfessionName().toString() : display.getDisplayName().getString();
+			Minecraft mc = Minecraft.getInstance();
+			Font font = mc.font;
+			String text = mc.hasShiftDown() ? display.getProfessionName().toString() : display.getDisplayName().getString();
 			if (font.width(text) > 122) {
 				poseStack.scale(0.75F, 0.75F);
 			}

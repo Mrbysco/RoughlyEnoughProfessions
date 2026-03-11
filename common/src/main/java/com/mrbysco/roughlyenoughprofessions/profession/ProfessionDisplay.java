@@ -3,9 +3,8 @@ package com.mrbysco.roughlyenoughprofessions.profession;
 import com.mrbysco.roughlyenoughprofessions.RenderHelper;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Matrix3x2fStack;
 import org.joml.Vector2f;
@@ -22,19 +21,19 @@ public class ProfessionDisplay {
 	/**
 	 * Get the profession name for the recipe.
 	 *
-	 * @return
+	 * @return the profession name for the recipe.
 	 */
-	public ResourceLocation getProfessionName() {
-		return this.entry.profession().unwrapKey().orElseThrow().location();
+	public Identifier getProfessionName() {
+		return this.entry.profession().unwrapKey().orElseThrow().identifier();
 	}
 
 	/**
 	 * Get the profession name for display.
 	 *
-	 * @return
+	 * @return the profession name for display.
 	 */
 	public Component getDisplayName() {
-		ResourceLocation professionKey = getProfessionName();
+		Identifier professionKey = getProfessionName();
 		String languageKey = professionKey.toLanguageKey();
 		if (languageKey.startsWith("minecraft.")) languageKey = languageKey.replace("minecraft.", "");
 		return Component.translatable("entity.minecraft.villager." + languageKey);
@@ -59,8 +58,8 @@ public class ProfessionDisplay {
 			int x = Math.round(position.x);
 			int y = Math.round(position.y);
 			RenderHelper.renderVillager(guiGraphics, x, y, 25.0F,
-					Mth.wrapDegrees(38 - mouseX),
-					Mth.wrapDegrees(15 - mouseY),
+					mouseX + 12,
+					mouseY - 12,
 					entityVillager);
 		}
 	}

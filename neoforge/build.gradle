@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id "net.neoforged.moddev" version "2.0.116"
+    id "net.neoforged.moddev" version "2.0.140"
     id 'net.darkhax.curseforgegradle'
     id 'com.modrinth.minotaur'
 }
@@ -12,9 +12,6 @@ base {
     archivesName = "${mod_name}-neoforge-${minecraft_version}"
 }
 
-configurations {
-    testmodImplementation.extendsFrom implementation
-}
 neoForge {
     version = "${neo_version}"
 
@@ -28,7 +25,6 @@ neoForge {
     if (at.exists()) {
         accessTransformers.add(at.absolutePath)
     }
-    addModdingDependenciesTo(sourceSets["test"])
 
     runs {
         configureEach { model ->
@@ -55,7 +51,6 @@ neoForge {
     mods {
         "${mod_id}" {
             sourceSet sourceSets.main
-            sourceSet sourceSets.test
         }
     }
 }
