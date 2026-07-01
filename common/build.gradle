@@ -2,7 +2,7 @@ plugins {
     id 'idea'
     id 'java'
     id 'maven-publish'
-    id "net.neoforged.moddev" version "2.0.140"
+    id "net.neoforged.moddev" version "2.0.141"
 }
 
 base {
@@ -19,10 +19,6 @@ neoForge {
     def at = file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
         accessTransformers.add(at.absolutePath)
-    }
-    parchment {
-        minecraftVersion = "${parchment_minecraft_version}"
-        mappingsVersion = "${parchment_mapping_version}"
     }
 }
 

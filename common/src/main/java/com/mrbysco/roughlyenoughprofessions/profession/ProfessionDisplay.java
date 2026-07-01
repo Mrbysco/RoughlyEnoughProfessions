@@ -1,7 +1,7 @@
 package com.mrbysco.roughlyenoughprofessions.profession;
 
 import com.mrbysco.roughlyenoughprofessions.RenderHelper;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.npc.villager.Villager;
@@ -48,7 +48,7 @@ public class ProfessionDisplay {
 		return this.entry.blockStacks();
 	}
 
-	public void drawEntry(GuiGraphics guiGraphics, double mouseX, double mouseY) {
+	public void drawEntry(GuiGraphicsExtractor guiGraphics, double mouseX, double mouseY) {
 		final Matrix3x2fStack poseStack = guiGraphics.pose();
 
 		Villager entityVillager = entry.getVillagerEntity();
